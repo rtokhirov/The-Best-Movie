@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <title>Best Movie</title>
+    <style>
+        body::-webkit-scrollbar {
+            width: 0px;
+        }
+        
+        .ul {
+            list-style: none;
+            height: 100vh;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            padding: 2px;
+            gap: 18px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            scroll-behavior: smooth;
+        }
+        
+        .ul::-webkit-scrollbar {
+            width: 0px;
+        }
+        
+        .modalBG {
+            position: fixed;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: transparent;
+            backdrop-filter: blur(4px);
+            overflow-y: auto;
+            user-select: none;
+            transition: all 0.5s;
+        }
+        
+        #modalc {
+            box-shadow: 0px 0px 50px 5px rgb(53, 51, 51);
+        }
+    </style>
+</head>
+
+<body>
+    <header class="container mb-2">
+        <h1 class="text-center">Best Movies</h1>
+    </header>
+    <main>
+        <section class="container d-flex gap-2">
+            <div class="form-group" style="flex-grow: 2">
+                <input type="text" class="form-control search" id="valueInput" autocomplete="off" aria-describedby="emailHelp" placeholder="Search..." />
+            </div>
+            <div class="dropdown position-relative" style="flex-grow: 1">
+                <select class="form-select" aria-label="Default select example" id="category">
+                    <option value="All" class="d-none">--Category--</option>
+                    <option value="All">All</option>
+                    <option value="Sci-Fi">Sci-Fi</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Action">Action</option>
+                    <option value="Documentary">Documentary</option>
+                    <option value="Animation">Animation</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="War">War</option>
+                    <option value="Western">Western</option>
+                    <option value="History">History</option>
+                    <option value="Music">Music</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Family">Family</option>
+                    <option value="Sport">Sport</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="News">News</option>
+                    <option value="Thriller">Thriller</option>
+                    <option value="Crime">Crime</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Biography">Biography</option>
+                    <option value="Romance">Romance</option>
+                    
+                    
+                </select>
+            </div>
+            <div class="dropdown position-relative" style="flex-grow: 1">
+                <select class="form-select" aria-label="Default select example" id="sorting">
+                    <option class="d-none">--Sort--</option>
+                    <option value="a-z">Alphabet (A-Z)</option>
+                    <option value="z-a">Alphabet (Z-A)</option>
+                    <option value="year">Year</option>
+                    <option value="rating">Rating</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-success" id="bookmarks" style="flex-grow: 0.5">❤️ Bookmarks</button>
+        </section>
+
+        <section class="container mt-2 d-none" id="blist">
+            <div class="px-3 py-1 border">
+                <div class="d-flex gap-2 flex-wrap" id="bkList">
+                    <!-- <div style="color: antiquewhite; border-radius: 5px; cursor: pointer;" class="p-1 bg-primary d-flex justify-content-center">
+                        <p class="m-0">Far Cry 5: Inside Eden's Gate</p>
+                    </div> -->
+                </div>
+                <div class="d-flex justify-content-center mt-2">
+                    <button type="button" class="btn btn-outline-danger" id="removBookmark">Remove all</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="container mt-3">
+            <ul class="ul">
+            </ul>
+        </section>
+    </main>
+
+    <!-- Modal -->
+    <div class="modalBG d-flex justify-content-center align-content-center p-3 opacity-1 overflow-y-hidden d-none" id="modalBG">
+        <div style="height: 500px;" class="modalM bg-dark-subtle w-50 rounded-3 p-2" id="modalc">
+            <div class="modal-content overflow-y-auto">
+                <div class="modal-header">
+                    <h3 class="modal-title fs-5" id="exampleModalLabel">About movie</h3>
+                    <button type="button" class="btn-close" id="modalCBTN"></button>
+                </div>
+                <hr>
+                <div style="height: 425px;" class="modal-body p-md-1 d-flex flex-column align-items-center overflow-y-auto">
+                    <img class="w-50 h-50" src="http://i3.ytimg.com/vi/N1HWcofsxJk/hqdefault.jpg" alt="">
+                    <h2 class="text-center">Battle Los Angeles</h2>
+                    <h6 class="w-100" style="display: flex; justify-content: space-between;"><b>Genre:</b>Documentary</h6>
+                    <h6 class="w-100" style="display: flex; justify-content: space-between;"><b>Year:</b>2018</h6>
+                    <h6 class="w-100" style="display: flex; justify-content: space-between;"><b>Language:</b>English</h6>
+                    <h6 class="w-100" style="display: flex; justify-content: space-between;"><b>Runtime:</b>85</h6>
+                    <h6 class="w-100"><b>Summary: </b>David (Josh Wiggins), an urban teenager, journeys to rura</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/new.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
