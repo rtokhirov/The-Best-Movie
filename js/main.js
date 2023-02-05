@@ -159,7 +159,8 @@ const aboutMovie = (movie) => {
     })
     let year = movie.year
     let language = movie.language;
-    let runTime = movie.runTime;
+    let runTime = movie.runtime;
+
     let summary = movie.summary;
     document.querySelector('.modal-body').innerHTML = ""
     document.querySelector('.modal-body').innerHTML = `
@@ -168,11 +169,11 @@ const aboutMovie = (movie) => {
     <h6 class="w-100" style="display: flex; justify-content: space-between;"><b>Genre:</b>${category}</h6>
     <h6 class="w-100" style="display: flex; justify-content: space-between;"><b>Year:</b>${year}</h6>
     <h6 class="w-100" style="display: flex; justify-content: space-between;"><b>Language:</b>${language}</h6>
-    <h6 class="w-100" style="display: flex; justify-content: space-between;"><b>Runtime:</b>${runTime}</h6>
+    <h6 class="w-100" style="display: flex; justify-content: space-between;"><b>Runtime:</b>${runTime} minutes</h6>
     <h6 class="w-100"><b>Summary: </b>${summary}</h6>
     `
     modalBG.classList.remove('d-none')
-    console.log("ishladi")
+
 }
 
 
@@ -180,7 +181,6 @@ document.querySelector('body').addEventListener('click', (e) => {
 
     if (e.target.textContent == "See more") {
         let listID = e.target.parentElement.parentElement.id
-        console.log(document.getElementById(`${listID}`).childNodes[3].textContent)
         findMovie(document.getElementById(`${listID}`).childNodes[3].textContent)
 
     } else if (e.target.textContent == "Bookmarks") {
